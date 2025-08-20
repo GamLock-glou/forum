@@ -12,24 +12,31 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'router': ['react-router-dom'],
-          'state': ['zustand'],
-          'icons': ['lucide-react'],
-          'ui': ['react-window'],
+        manualChunks: (id: string) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'react-vendor';
+            }
+            if (id.includes('react-router-dom')) {
+              return 'router';
+            }
+            if (id.includes('zustand')) {
+              return 'state';
+            }
+            if (id.includes('lucide-react')) {
+              return 'icons';
+            }
+            if (id.includes('react-window')) {
+              return 'ui';
+            }
+          }
           
-          'entities': [
-            './src/entities/post/index.ts',
-            './src/entities/user/index.ts',
-            './src/entities/comment/index.ts'
-          ],
-          'features': [
-            './src/features/session/index.tsx',
-            './src/features/auth/LoginModal/index.tsx',
-            './src/features/post-actions/CreatePostForm.tsx',
-            './src/features/filters/UserFilter.tsx'
-          ]
+          if (id.includes('/src/entities/')) {
+            return 'entities';
+          }
+          if (id.includes('/src/features/')) {
+            return 'features';
+          }
         }
       }
     },
