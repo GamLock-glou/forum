@@ -1,0 +1,502 @@
+.postPage {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0;
+}
+
+.postContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 500px;
+}
+
+.loadingSpinner {
+  margin-bottom: 24px;
+  color: #667eea;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loadingContainer h2 {
+  font-size: 1.75rem;
+  color: #1f2937;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.loadingContainer p {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Not Found State */
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 500px;
+  border: 2px solid #fbbf24;
+}
+
+.notFoundIcon {
+  position: relative;
+  margin-bottom: 24px;
+  color: #6b7280;
+}
+
+.warning {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  color: #fbbf24;
+  background: white;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.notFoundContainer h1 {
+  font-size: 2rem;
+  color: #1f2937;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.notFoundContainer p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Navigation */
+.postNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  margin-bottom: 24px;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.backLink:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.navInfo {
+  display: flex;
+  align-items: center;
+}
+
+.postId {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Content */
+.postContent {
+  display: grid;
+  gap: 32px;
+}
+
+/* Post Article */
+.postArticle {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.postHeader {
+  padding: 24px 32px 16px;
+  border-bottom: 1px solid #f3f4f6;
+  background: linear-gradient(135deg, #fafafa 0%, #f3f4f6 100%);
+}
+
+.postMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #10b981;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.postMain {
+  padding: 0;
+}
+
+/* Author Section */
+.authorSection {
+  padding: 32px;
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.authorHeader {
+  margin-bottom: 20px;
+}
+
+.authorHeader h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.authorCard {
+  display: flex;
+  gap: 20px;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.authorAvatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  border: 3px solid #f3f4f6;
+}
+
+.authorInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.authorMain {
+  margin-bottom: 16px;
+}
+
+.authorName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 4px 0;
+}
+
+.authorUsername {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0 0 8px 0;
+}
+
+.authorBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.authorDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.authorContact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.websiteLink {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.websiteLink:hover {
+  text-decoration: underline;
+}
+
+.authorLocation, .authorCompany {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Comments Section */
+.commentsSection {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.commentsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+  border-bottom: 2px solid #f3f4f6;
+  background: linear-gradient(135deg, #fafafa 0%, #f3f4f6 100%);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.commentsTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #1f2937;
+}
+
+.commentsTitle h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.commentsCount {
+  background: #eff6ff;
+  color: #1d4ed8;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.commentsActions {
+  flex-shrink: 0;
+}
+
+.commentsContent {
+  padding: 32px;
+}
+
+.commentsLoading, .commentsError {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.commentsError {
+  color: #ef4444;
+  background: #fef2f2;
+  border-radius: 12px;
+  border: 1px solid #fecaca;
+}
+
+.noComments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.noCommentsIcon {
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.noComments h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.noComments p {
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.commentWrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #f3f4f6;
+  transition: box-shadow 0.2s ease;
+}
+
+.commentWrapper:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .postContainer {
+    padding: 0 16px 16px;
+  }
+  
+  .postNav {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  
+  .authorCard {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .authorDetails {
+    align-items: center;
+  }
+  
+  .commentsHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .postArticle,
+  .commentsSection {
+    border-radius: 16px;
+  }
+  
+  .postHeader,
+  .authorSection,
+  .commentsContent {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .backLink {
+    padding: 10px 16px;
+  }
+  
+  .authorAvatar {
+    width: 56px;
+    height: 56px;
+    font-size: 1.25rem;
+  }
+  
+  .contactItem,
+  .authorLocation,
+  .authorCompany {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .commentsTitle {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Animation */
+.postPage {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
