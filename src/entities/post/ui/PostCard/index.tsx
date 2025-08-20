@@ -2,7 +2,7 @@ import { memo, useCallback, useMemo } from "react";
 import { generatePath, useNavigate } from "react-router-dom";
 import { Heart, ThumbsUp, ThumbsDown, Star, Trash2 } from "lucide-react";
 import { ERoutes } from "@/shared/config/routes";
-import { usePostStore } from "@/entities/post";
+import { usePostActions } from "@/entities/post";
 import { useUserStore } from "@/entities/user";
 import { useSessionStore } from "@/features/session";
 import { Button } from "@/shared/ui/Button";
@@ -15,8 +15,7 @@ interface PostCardProps {
 }
 
 export const PostCard = memo(({ post }: PostCardProps) => {
-  const { toggleLike, toggleDislike, toggleFavorite, deletePost } =
-    usePostStore();
+  const { toggleLike, toggleDislike, toggleFavorite, deletePost } = usePostActions();
   const navigate = useNavigate();
   const { users } = useUserStore();
   const { isAuthenticated, isAdmin } = useSessionStore();

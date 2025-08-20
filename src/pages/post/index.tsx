@@ -95,7 +95,6 @@ export const PostPage = () => {
   return (
     <div className={styles.postPage}>
       <div className={styles.postContainer}>
-        {/* Navigation */}
         <nav className={styles.postNav}>
           <Link to={ERoutes.HOME} className={styles.backLink}>
             <ArrowLeft size={18} />
@@ -106,9 +105,7 @@ export const PostPage = () => {
           </div>
         </nav>
 
-        {/* Main Content */}
         <div className={styles.postContent}>
-          {/* Post Article */}
           <article className={styles.postArticle}>
             <div className={styles.postHeader}>
               <div className={styles.postMeta}>
@@ -121,7 +118,6 @@ export const PostPage = () => {
               <PostCard post={post} />
             </div>
 
-            {/* Author Section */}
             {author && (
               <div className={styles.authorSection}>
                 <div className={styles.authorHeader}>
@@ -181,7 +177,6 @@ export const PostPage = () => {
             )}
           </article>
 
-          {/* Comments Section */}
           <section className={styles.commentsSection}>
             <div className={styles.commentsHeader}>
               <div className={styles.commentsTitle}>

@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { TPost, TPostWithInteractions } from './types';
 
-interface PostState {
+export interface PostState {
   posts: TPostWithInteractions[];
   loading: boolean;
   error: string | null;

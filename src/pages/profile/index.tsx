@@ -31,32 +31,33 @@ export const ProfilePage = () => {
     <div className={styles.profilePage}>
       <div className={styles.profileContainer}>
         <header className={styles.profileHeader}>
-          <div className={styles.headerBackground}></div>
-          <div className={styles.headerContent}>
-            <div className={styles.profileAvatar}>
-              <div className={styles.avatarWrapper}>
-                <div className={styles.avatarPlaceholder}>
-                  {currentUser.name.charAt(0).toUpperCase()}
-                </div>
-                {currentUser.isAdmin && (
-                  <div className={styles.adminCrown}>
-                    <Award size={16} />
+          <div className={styles.headerBackground}>
+            <div className={styles.headerContent}>
+              <div className={styles.profileAvatar}>
+                <div className={styles.avatarWrapper}>
+                  <div className={styles.avatarPlaceholder}>
+                    {currentUser.name.charAt(0).toUpperCase()}
                   </div>
+                  {currentUser.isAdmin && (
+                    <div className={styles.adminCrown}>
+                      <Award size={14} />
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className={styles.profileInfo}>
+                <h1>{currentUser.name}</h1>
+                <p className={styles.username}>@{currentUser.username}</p>
+                {currentUser.isAdmin && (
+                  <span className={styles.adminBadge}>
+                    <Award size={12} />
+                    Administrator
+                  </span>
                 )}
               </div>
-            </div>
-            <div className={styles.profileInfo}>
-              <h1>{currentUser.name}</h1>
-              <p className={styles.username}>@{currentUser.username}</p>
-              {currentUser.isAdmin && (
-                <span className={styles.adminBadge}>
-                  <Award size={14} />
-                  Administrator
-                </span>
-              )}
-            </div>
-            <div className={styles.profileActions}>
-              <EditProfileForm user={currentUser} />
+              <div className={styles.profileActions}>
+                <EditProfileForm user={currentUser} />
+              </div>
             </div>
           </div>
         </header>
@@ -93,27 +94,22 @@ export const ProfilePage = () => {
               <div className={styles.detailList}>
                 <div className={styles.detailItem}>
                   <Mail size={16} />
-                  <span className={styles.detailLabel}>Email:</span>
-                  <span className={styles.detailValue}>{currentUser.email}</span>
+                  <span>{currentUser.email}</span>
                 </div>
                 <div className={styles.detailItem}>
                   <Phone size={16} />
-                  <span className={styles.detailLabel}>Phone:</span>
-                  <span className={styles.detailValue}>{currentUser.phone}</span>
+                  <span>{currentUser.phone}</span>
                 </div>
                 <div className={styles.detailItem}>
                   <Globe size={16} />
-                  <span className={styles.detailLabel}>Website:</span>
-                  <span className={styles.detailValue}>
-                    <a
-                      href={`https://${currentUser.website}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.websiteLink}
-                    >
-                      {currentUser.website}
-                    </a>
-                  </span>
+                  <a
+                    href={`https://${currentUser.website}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.websiteLink}
+                  >
+                    {currentUser.website}
+                  </a>
                 </div>
               </div>
             </section>

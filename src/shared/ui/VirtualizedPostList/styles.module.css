@@ -1,0 +1,38 @@
+.virtualList {
+  /* Убираем стандартные стили react-window */
+}
+
+.postItem {
+  display: flex;
+  padding: 0 16px;
+}
+
+.postWrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #f3f4f6;
+  transition: box-shadow 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.postWrapper:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Адаптивные отступы */
+@media (max-width: 768px) {
+  .postItem {
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .postItem {
+    padding: 0 4px;
+  }
+  
+  .postWrapper {
+    margin-bottom: 16px;
+  }
+}

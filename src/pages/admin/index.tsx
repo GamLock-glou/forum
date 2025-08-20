@@ -5,7 +5,6 @@ import { useUserStore } from '@/entities/user';
 import { usePostStore } from '@/entities/post';
 import { UserManagement } from '@/features/admin/UserManagement';
 import { PostManagement } from '@/features/admin/PostManagement';
-import { Button } from '@/shared/ui/Button';
 import styles from './styles.module.css';
 
 type AdminTab = 'overview' | 'users' | 'posts';
@@ -66,30 +65,27 @@ export const AdminPage = () => {
         </header>
 
         <nav className={styles.adminTabs}>
-          <Button 
+          <button 
             className={`${styles.tab} ${activeTab === 'overview' ? styles.active : ''}`}
             onClick={() => setActiveTab('overview')}
-            variant={activeTab === 'overview' ? 'primary' : 'secondary'}
           >
             <BarChart3 size={16} />
             Overview
-          </Button>
-          <Button 
+          </button>
+          <button 
             className={`${styles.tab} ${activeTab === 'users' ? styles.active : ''}`}
             onClick={() => setActiveTab('users')}
-            variant={activeTab === 'users' ? 'primary' : 'secondary'}
           >
             <Users size={16} />
             Users ({users.length})
-          </Button>
-          <Button 
+          </button>
+          <button 
             className={`${styles.tab} ${activeTab === 'posts' ? styles.active : ''}`}
             onClick={() => setActiveTab('posts')}
-            variant={activeTab === 'posts' ? 'primary' : 'secondary'}
           >
             <FileText size={16} />
             Posts ({posts.length})
-          </Button>
+          </button>
         </nav>
 
         <main className={styles.adminContent}>

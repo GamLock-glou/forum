@@ -1,15 +1,15 @@
 import { useMemo } from 'react';
-import { FileText, Users, Loader, AlertCircle, Filter, Plus } from 'lucide-react';
-import { usePostStore } from '@/entities/post';
-import { PostCard } from '@/entities/post';
+import { FileText, Users, Loader, AlertCircle, Filter, Plus } from '@/shared/ui/icons';
+import { useFilteredPosts, usePostsLoading, usePostsError } from '@/entities/post';
+import { VirtualizedPostList } from '@/shared/ui/VirtualizedPostList';
 import { UserFilter } from '@/features/filters/UserFilter';
 import { CreatePostForm } from '@/features/post-actions/CreatePostForm';
 import styles from './styles.module.css';
 
 export const HomePage = () => {
-  const { getFilteredPosts, loading, error } = usePostStore();
-
-  const filteredPosts = getFilteredPosts();
+  const filteredPosts = useFilteredPosts();
+  const loading = usePostsLoading();
+  const error = usePostsError();
 
   const sortedPosts = useMemo(
     () => filteredPosts.sort((a, b) => (b.priority || 0) - (a.priority || 0)),
@@ -47,7 +47,6 @@ export const HomePage = () => {
   return (
     <div className={styles.homePage}>
       <div className={styles.homeContainer}>
-        {/* Header */}
         <header className={styles.homeHeader}>
           <div className={styles.headerContent}>
             <div className={styles.headerTitle}>
@@ -66,9 +65,7 @@ export const HomePage = () => {
           </div>
         </header>
 
-        {/* Content */}
         <div className={styles.homeContent}>
-          {/* Actions Section */}
           <section className={styles.actionsSection}>
             <div className={styles.actionsHeader}>
               <div className={styles.actionsTitle}>
@@ -90,7 +87,6 @@ export const HomePage = () => {
             </div>
           </section>
 
-          {/* Posts Section */}
           <section className={styles.postsSection}>
             <div className={styles.postsHeader}>
               <div className={styles.postsTitle}>
@@ -110,13 +106,11 @@ export const HomePage = () => {
                   <p>Be the first to create a post and start the conversation!</p>
                 </div>
               ) : (
-                <div className={styles.postsList}>
-                  {sortedPosts.map(post => (
-                    <div key={post.id} className={styles.postWrapper}>
-                      <PostCard post={post} />
-                    </div>
-                  ))}
-                </div>
+                <VirtualizedPostList 
+                  posts={sortedPosts}
+                  height={600}
+                  className={styles.postsList}
+                />
               )}
             </div>
           </section>
