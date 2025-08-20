@@ -1,11 +1,9 @@
-import { Heart, BookmarkX, Sparkles } from 'lucide-react';
+import { Heart, Sparkles } from 'lucide-react';
 import { usePostStore, PostCard } from '@/entities/post';
-import { useUserStore } from '@/entities/user';
 import styles from './styles.module.css';
 
 export const FavoritesPage = () => {
   const { getFavoritePosts } = usePostStore();
-  const { users } = useUserStore();
   const favoritePosts = getFavoritePosts();
 
   const totalLikes = favoritePosts.reduce((sum, post) => sum + (post.likes || 0), 0);

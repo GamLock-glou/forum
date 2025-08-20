@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Edit, Save, X, Shield, ShieldOff } from 'lucide-react';
 import { useUserStore } from '@/entities/user';
-import { useSessionStore } from '@/features/session';
 import { usersApi } from '@/entities/user';
 import { Button } from '@/shared/ui/Button';
 import type { TUser } from '@/entities/user';
@@ -133,7 +132,6 @@ const EditableUserRow = ({ user, onSave }: EditableUserRowProps) => {
 
 export const UserManagement = () => {
   const { users, updateUser } = useUserStore();
-  const { currentUser } = useSessionStore();
 
   const handleUserUpdate = (userId: number, updates: Partial<TUser>) => {
     updateUser(userId, updates);
@@ -143,7 +141,7 @@ export const UserManagement = () => {
     <div className="user-management">
       <h3>User Management</h3>
       <p>Total users: {users.length}</p>
-      
+
       <div className="users-table-wrapper">
         <table className="users-table">
           <thead>
