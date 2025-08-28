@@ -16,6 +16,7 @@ const ProfilePage = lazy(() => import("@/pages/profile").then(module => ({ defau
 const AdminPage = lazy(() => import("@/pages/admin").then(module => ({ default: module.AdminPage })));
 const FavoritesPage = lazy(() => import("@/pages/favorites").then(module => ({ default: module.FavoritesPage })));
 
+
 export default function App() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const { isAuthenticated, currentUser, isAdmin, logout } = useSessionStore();
