@@ -3,8 +3,10 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./app";
 import { BrowserRouter } from "react-router-dom";
-import { viewport } from "@telegram-apps/sdk";
+import { init, viewport } from "@telegram-apps/sdk";
 
+init();
+console.log('connect telegram...')
 if (viewport.mount.isAvailable()) {
   viewport
     .mount()
